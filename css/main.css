@@ -9151,6 +9151,12 @@ a:focus {
   .navbar-custom.top-nav-collapse {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   }
+  .top-nav-collapse .nav li a:focus {
+    background: #21263e;
+  }
+  .navbar-custom .nav li a:focus {
+    background: transparent;
+  }
 }
 .intro {
   display: table;
@@ -9175,10 +9181,20 @@ a:focus {
   opacity: 0;
   animation: appear-up 1s linear forwards;
 }
-.intro-text {
+.gradient {
+  display: block;
   font-size: 18px;
   opacity: 0;
   animation: appear-up 1s linear forwards;
+}
+.intro-text {
+  margin: 0;
+  font-size: 18px;
+  opacity: 0;
+  animation: appear-up 1s linear forwards;
+}
+.intro-text.small {
+  font-size: 14px;
 }
 @media (min-width: 767px) {
   .intro {
@@ -9188,8 +9204,15 @@ a:focus {
   .intro-heading {
     font-size: 50px;
   }
+  .gradient {
+    font-size: 25px;
+  }
   .intro-text {
     font-size: 25px;
+  }
+  .intro-text.small {
+    font-size: 20px;
+    color: #979fc7;
   }
 }
 .content-section {
@@ -9199,12 +9222,23 @@ a:focus {
   width: 100%;
   color: #21263e;
 }
+.quote {
+  margin: 0;
+  display: block;
+  text-align: center;
+}
+.social-button {
+  margin-left: 10px;
+}
 .about-text {
   text-align: left;
 }
 @media (min-width: 767px) {
   #about {
     padding: 200px 0;
+  }
+  .about-text {
+    font-size: 20px;
   }
 }
 #skills {
@@ -9334,6 +9368,7 @@ a:focus {
   width: 80%;
   margin: auto;
   margin-bottom: 20px;
+  opacity: 0;
 }
 #cv .card-time {
   color: #38888c;
@@ -9355,7 +9390,7 @@ footer {
   -moz-transition-property: -moz-transform;
   -moz-transition-duration: 1s;
 }
-@keyframes appear-up {
+@-webkit-keyframes appear-up {
   0% {
     opacity: 0;
     -webkit-transform: translate(0, 30px);

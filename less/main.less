@@ -110,6 +110,15 @@ a:focus {
   .navbar-custom.top-nav-collapse {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   }
+
+  .top-nav-collapse .nav li a:focus {
+    background: @dark-blue;
+  }
+
+  .navbar-custom .nav li a:focus {
+    background: transparent;
+  }
+
 }
 
 // Landing page
@@ -140,10 +149,23 @@ a:focus {
   animation: appear-up 1s linear forwards;
 }
 
-.intro-text {
+.gradient {
+  display: block;
   font-size: 18px;
   opacity: 0;
   animation: appear-up 1s linear forwards;
+}
+
+.intro-text {
+  margin: 0;
+  font-size: 18px;
+  opacity: 0;
+  animation: appear-up 1s linear forwards;
+
+  &.small
+  {
+    font-size: 14px;
+  }
 }
 
 @media (min-width: 767px) {
@@ -156,8 +178,18 @@ a:focus {
     font-size: 50px;
   }
 
+  .gradient {
+    font-size: 25px;
+  }
+
   .intro-text {
     font-size: 25px;
+
+    &.small
+    {
+      font-size: 20px;
+      color: lighten(@dark-blue, 50%);
+    }
   }
 }
 
@@ -177,6 +209,16 @@ a:focus {
 .about-img {
 }
 
+.quote {
+  margin: 0;
+  display: block;
+  text-align: center;
+}
+
+.social-button {
+  margin-left: 10px;
+}
+
 .about-text {
   text-align: left;
 }
@@ -184,6 +226,10 @@ a:focus {
 @media (min-width: 767px) {
   #about {
     padding: 200px 0;
+  }
+
+  .about-text {
+    font-size: 20px;
   }
 }
 
@@ -339,6 +385,7 @@ a:focus {
     width: 80%;
     margin: auto;
     margin-bottom: 20px;
+    opacity: 0;
   }
 
   .card-time {
@@ -372,7 +419,7 @@ footer {
 
 // animations
 
-@keyframes appear-up {
+@-webkit-keyframes appear-up {
   0% {
     opacity: 0;
     -webkit-transform: translate(0, 30px);

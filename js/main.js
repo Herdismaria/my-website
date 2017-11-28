@@ -1,6 +1,7 @@
 $(window).scroll(function() {
   var skillsSection = $("#skills");
   var bottomOfWindow = $(window).scrollTop() + $(window).height();
+  var cards = $('.card');
 
   // navbar shrinks and follows when scrolled past it's height
   if ($('.navbar').offset().top > 50) {
@@ -10,7 +11,8 @@ $(window).scroll(function() {
   }
 
   // Skills section
-  if (bottomOfWindow > (skillsSection.offset().top + skillsSection.outerHeight())) {
+  // animate diamond grades
+  if (bottomOfWindow > (skillsSection.offset().top + skillsSection.outerHeight()/2)) {
     $('.grade').each(function() {
       $(this).children('.blue').each(function(i) {
         $(this).animate({
@@ -19,6 +21,15 @@ $(window).scroll(function() {
       });
     })
   }
+
+  cards.each(function() {
+    if(bottomOfWindow > ($(this).offset().top) + $(this).outerHeight()/2) {
+      console.log("animate");
+      $(this).animate({
+        opacity: 1
+      }, 2000);
+    }
+  });
 });
 
 $(function() {
@@ -28,7 +39,7 @@ $(function() {
       .stop()
       .animate(
         {
-          scrollTop: $($anchor.attr('href')).offset().top,
+          scrollTop: $($anchor.attr('href')).offset().top - 50,
         },
         1500,
         'easeInOutExpo'
@@ -36,6 +47,7 @@ $(function() {
     event.preventDefault();
   });
 
+  // Download button tilt animation
   $('#dl .button').mouseenter(function() {
     $(this).children('.fa-diamond').removeClass('rotate-left').addClass('rotate-right');
   });
