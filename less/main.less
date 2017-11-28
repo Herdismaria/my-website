@@ -11,7 +11,7 @@
 
 html {
   height: 100%;
-  width: 100%;
+  width: 100vw;
 }
 
 body {
@@ -243,26 +243,21 @@ a:focus {
    margin-left:auto;
    margin-right:auto;
    display:block;
-}
+  }
 
 
   .skill-block {
-    padding: 10px 0;
     overflow: auto;
     text-align: center;
     display: table;
     margin: auto;
     width: 60%;
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      margin: 0 0 10px 0;
+
+    h3 {
+      margin: 0 0 5px 0;
       padding: 0;
-      font-size: 30px;
+      font-size: 20px;
     }
 
     .icon-content {
@@ -294,6 +289,10 @@ a:focus {
 
   .skill-block {
     padding: 0 0;
+  }
+
+  #skills .icon-content h3 {
+    font-size: 30px;
   }
 }
 
@@ -388,6 +387,10 @@ a:focus {
     opacity: 0;
   }
 
+  .card-title {
+    font-size: 20px;
+  }
+
   .card-time {
     color: lighten(@dark-green, 20%);
     font-size: 14px;
@@ -399,6 +402,12 @@ a:focus {
     width: 60%;
   }
 
+}
+
+@media (min-width: 767px) {
+  .card-title {
+    font-size: 30px;
+  }
 }
 
 // footer section

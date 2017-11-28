@@ -24,7 +24,6 @@ $(window).scroll(function() {
 
   cards.each(function() {
     if(bottomOfWindow > ($(this).offset().top) + $(this).outerHeight()/2) {
-      console.log("animate");
       $(this).animate({
         opacity: 1
       }, 2000);
